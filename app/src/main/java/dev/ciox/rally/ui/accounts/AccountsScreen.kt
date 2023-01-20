@@ -1,4 +1,4 @@
-package dev.ciox.rally.ui
+package dev.ciox.rally.ui.accounts
 
 import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
