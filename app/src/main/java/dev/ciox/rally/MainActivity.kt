@@ -3,7 +3,6 @@ package dev.ciox.rally
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
@@ -15,10 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import dev.ciox.rally.ui.Overview
-import dev.ciox.rally.ui.RallyDestination
+import dev.ciox.rally.ui.*
 import dev.ciox.rally.ui.components.RallyTabRow
-import dev.ciox.rally.ui.rallyTabRowScreens
 import dev.ciox.rally.ui.theme.RallyTheme
 
 class MainActivity : ComponentActivity() {
@@ -53,6 +50,12 @@ fun RallyApp() {
             ) {
                 composable(route = Overview.route) {
                     Overview.screen
+                }
+                composable(route = Accounts.route) {
+                    Accounts.screen
+                }
+                composable(route = Bills.route) {
+                    Bills.screen
                 }
             }
         }
