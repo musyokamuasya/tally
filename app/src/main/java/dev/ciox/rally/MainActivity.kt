@@ -18,7 +18,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dev.ciox.rally.ui.*
+import dev.ciox.rally.ui.accounts.AccountsScreen
+import dev.ciox.rally.ui.bills.BillsScreen
 import dev.ciox.rally.ui.components.RallyTabRow
+import dev.ciox.rally.ui.overview.OverviewScreen
 import dev.ciox.rally.ui.theme.RallyTheme
 
 class MainActivity : ComponentActivity() {
@@ -58,13 +61,13 @@ fun RallyApp() {
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable(route = Overview.route) {
-                    Overview.screen()
+                   OverviewScreen()
                 }
                 composable(route = Accounts.route) {
-                    Accounts.screen()
+                    AccountsScreen()
                 }
                 composable(route = Bills.route) {
-                    Bills.screen()
+                    BillsScreen()
                 }
             }
         }
