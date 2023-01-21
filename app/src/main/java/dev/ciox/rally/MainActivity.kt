@@ -35,11 +35,12 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun RallyApp() {
     RallyTheme {
-        var currentScreen: RallyDestination by remember { mutableStateOf(Overview) }
+//        var currentScreen: RallyDestination by remember { mutableStateOf(Overview) }
         val navController = rememberNavController()
         val currentBackStack by navController.currentBackStackEntryAsState()
         val currentDestination = currentBackStack?.destination
-//        val currentScreen = rallyTabRowScreens.find { it.route = currentDestination?.route ?: Overview }
+        val currentScreen =
+            rallyTabRowScreens.find { it.route == currentDestination?.route } ?: Overview
         Scaffold(
             topBar = {
                 RallyTabRow(
