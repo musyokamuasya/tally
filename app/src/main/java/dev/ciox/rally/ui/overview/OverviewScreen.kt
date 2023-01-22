@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import dev.ciox.rally.R
 import dev.ciox.rally.data.UserData
 import dev.ciox.rally.ui.components.*
+import dev.ciox.rally.ui.theme.RallyTheme
 import java.util.*
 
 
@@ -52,7 +53,9 @@ fun OverviewScreen(
 @Preview
 @Composable
 private fun PreviewOverview() {
-    OverviewScreen()
+    RallyTheme {
+        OverviewScreen()
+    }
 }
 
 
