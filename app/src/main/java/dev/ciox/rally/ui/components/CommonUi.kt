@@ -58,7 +58,7 @@ private fun BaseRow(
     amount: Float,
     negative: Boolean
 ) {
-    val dollarSign = if (negative) "–$ " else "$ "
+    val dollarSign = if (negative) "–Ksh " else "Ksh "
     val formattedAmount = formatAmount(amount)
     Row(
         modifier = modifier
