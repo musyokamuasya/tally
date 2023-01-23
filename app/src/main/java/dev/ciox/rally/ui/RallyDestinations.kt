@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavType
 import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import dev.ciox.rally.ui.accounts.AccountsScreen
 import dev.ciox.rally.ui.accounts.SingleAccountScreen
 import dev.ciox.rally.ui.bills.BillsScreen
@@ -45,6 +46,9 @@ object SingleAccount : RallyDestination {
     const val accountTypeArg = "account_type"
     val routeWithArgs = "${route}/{${accountTypeArg}}"
 
+    val deepLinks = listOf(navDeepLink {
+        uriPattern = "rally://$route/{$accountTypeArg}"
+    })
     val arguments = listOf(navArgument(accountTypeArg) { type = NavType.StringType })
 }
 

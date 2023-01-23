@@ -19,33 +19,33 @@ data class Account(
 object UserData {
     val bills: List<Bill> = listOf(
         Bill(
-            "RedPay Credit",
+            "Sacco Payment",
             "Jan 29",
-            45.36f,
+            4500.00f,
             Color(0xFFFFDC78)
         ),
         Bill(
             "Rent",
             "Feb 9",
-            1200f,
+            12000f,
             Color(0xFFFF6951)
         ),
         Bill(
-            "TabFine Credit",
+            "House utility",
             "Feb 22",
-            87.33f,
+            10000.00f,
             Color(0xFFFFD7D0)
         ),
         Bill(
-            "ABC Loans",
+            "NCBA Loan",
             "Feb 29",
-            400f,
+            4000f,
             Color(0xFFFFAC12)
         ),
         Bill(
-            "ABC Loans 2",
+            "Internet & Utility",
             "Feb 29",
-            77.4f,
+            7750.4f,
             Color(0xFFFFAC12)
         )
     )
@@ -55,25 +55,25 @@ object UserData {
         Account(
             "Checking",
             1234,
-            2215.13f,
+            22150.13f,
             Color(0xFF004940)
         ),
         Account(
             "Home Savings",
             5678,
-            8676.88f,
+            867612.88f,
             Color(0xFF005D57)
         ),
         Account(
             "Car Savings",
             9012,
-            987.48f,
+            987746.48f,
             Color(0xFF04B97F)
         ),
         Account(
             "Vacation",
             3456,
-            253f,
+            25303.00f,
             Color(0xFF37EFBA)
         )
     )
