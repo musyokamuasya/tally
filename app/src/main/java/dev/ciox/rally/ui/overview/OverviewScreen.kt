@@ -160,7 +160,7 @@ private fun <T> OverviewScreenCard(
         Column {
             Column(Modifier.padding(RallyDefaultPadding)) {
                 Text(text = title, style = MaterialTheme.typography.subtitle2)
-                val amountText = "$" + formatAmount(
+                val amountText = "Ksh " + formatAmount(
                     amount
                 )
                 Text(text = amountText, style = MaterialTheme.typography.h2)
