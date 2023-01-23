@@ -16,6 +16,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import androidx.navigation.navDeepLink
 import dev.ciox.rally.ui.*
 import dev.ciox.rally.ui.accounts.AccountsScreen
 import dev.ciox.rally.ui.accounts.SingleAccountScreen
@@ -81,7 +82,8 @@ fun RallyApp() {
                 }
                 composable(
                     route = SingleAccount.routeWithArgs,
-                    arguments = SingleAccount.arguments
+                    arguments = SingleAccount.arguments,
+                    deepLinks = SingleAccount.deepLinks
                 ) { navBackStackEntry ->
                     val accountType =
                         navBackStackEntry.arguments?.getString(SingleAccount.accountTypeArg)
@@ -101,6 +103,6 @@ fun NavHostController.navigateSingleTopTo(route: String) =
         restoreState = true
     }
 
-fun NavHostController.navigateToSingleAccount(accountType: String){
+fun NavHostController.navigateToSingleAccount(accountType: String) {
     this.navigateSingleTopTo("${SingleAccount.route}/${accountType}")
 }
