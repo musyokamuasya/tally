@@ -2,12 +2,9 @@ package dev.ciox.rally.ui.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import dev.ciox.rally.navigateSingleTopTo
-import dev.ciox.rally.navigateToSingleAccount
 import dev.ciox.rally.ui.Accounts
 import dev.ciox.rally.ui.Bills
 import dev.ciox.rally.ui.Overview
@@ -18,7 +15,10 @@ import dev.ciox.rally.ui.bills.BillsScreen
 import dev.ciox.rally.ui.overview.OverviewScreen
 
 @Composable
-fun RallyNavHost(navController: NavHostController, modifier: Modifier = Modifier) {
+fun RallyNavHost(
+    navController: NavHostController,
+    modifier: Modifier = Modifier
+) {
     NavHost(
         navController = navController,
         startDestination = Overview.route,
@@ -26,11 +26,15 @@ fun RallyNavHost(navController: NavHostController, modifier: Modifier = Modifier
     ) {
         composable(route = Overview.route) {
             OverviewScreen(
+                onClickSeeAllAccounts = {
+                    navController.navigateSingleTopTo(Accounts.route)
+                },
+                onClickSeeAllBills = {
+                    navController.navigateSingleTopTo(Bills.route)
+                },
                 onAccountClick = { accountType ->
                     navController.navigateToSingleAccount(accountType)
-                },
-                onClickSeeAllAccounts = { navController.navigateSingleTopTo(Accounts.route) },
-                onClickSeeAllBills = { navController.navigateSingleTopTo(Bills.route) }
+                }
             )
         }
         composable(route = Accounts.route) {
@@ -41,8 +45,7 @@ fun RallyNavHost(navController: NavHostController, modifier: Modifier = Modifier
             )
         }
         composable(route = Bills.route) {
-            BillsScreen(
-            )
+            BillsScreen()
         }
         composable(
             route = SingleAccount.routeWithArgs,
@@ -57,14 +60,8 @@ fun RallyNavHost(navController: NavHostController, modifier: Modifier = Modifier
 }
 
 fun NavHostController.navigateSingleTopTo(route: String) =
-    this.navigate(route) {
-        popUpTo(this@navigateSingleTopTo.graph.findStartDestination().id) {
-            saveState = true
-        }
-        launchSingleTop = true
-        restoreState = true
-    }
+    this.navigate(route) { launchSingleTop = true }
 
-fun NavHostController.navigateToSingleAccount(accountType: String) {
-    this.navigateSingleTopTo("${SingleAccount.route}/${accountType}")
+private fun NavHostController.navigateToSingleAccount(accountType: String) {
+    this.navigateSingleTopTo("${SingleAccount.route}/$accountType")
 }
