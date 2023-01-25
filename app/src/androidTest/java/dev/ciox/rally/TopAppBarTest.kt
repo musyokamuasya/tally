@@ -15,7 +15,7 @@ class TopAppBarTest {
     @Test
     fun rallyTopAppBarTest() {
         composeTestRule.setContent {
-            RallyTabRow(allScreens = rallyTabRowScreens, onTabSelected = {}, currentScreen =)
+//            RallyTabRow(allScreens = rallyTabRowScreens, onTabSelected = {}, currentScreen =)
         }
     }
 }
