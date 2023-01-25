@@ -1,11 +1,12 @@
 package dev.ciox.rally
 
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
 import dev.ciox.rally.ui.components.RallyNavHost
-import org.junit.Assert.fail
 import org.junit.Rule
 import org.junit.Test
 
@@ -15,7 +16,7 @@ class NavigationTest {
     lateinit var navController: TestNavHostController
 
     @Test
-    fun rallyNavHost(){
+    fun rallyNavHost() {
         composeTestRule.setContent {
             navController = TestNavHostController(LocalContext.current)
 
@@ -23,6 +24,6 @@ class NavigationTest {
 
             RallyNavHost(navController = navController)
         }
-        fail()
+        composeTestRule.onNodeWithContentDescription("Overview Screen").assertIsDisplayed()
     }
 }
