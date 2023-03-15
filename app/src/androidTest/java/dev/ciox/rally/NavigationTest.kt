@@ -1,13 +1,9 @@
 package dev.ciox.rally
 
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
-import androidx.compose.ui.test.onNodeWithContentDescription
-import androidx.compose.ui.test.performClick
-import androidx.compose.ui.test.performScrollTo
 import androidx.navigation.compose.ComposeNavigator
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.testing.TestNavHostController
 import dev.ciox.rally.ui.components.RallyNavHost
 import org.junit.Assert.assertEquals
@@ -49,6 +45,7 @@ class NavigationTest {
             .performClick()
         val route = navController.currentBackStackEntry?.destination?.route
         assertEquals(route, "bills")
-
+//        composeTestRule.onRoot().printToLog("CurrentLabelExist")
     }
+
 }
